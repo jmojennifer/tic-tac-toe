@@ -12,6 +12,9 @@ var ApplicationView = Backbone.View.extend({
       el: $('#board')
     });
 
+  },
+
+  render: function() {
     newBoard.render();
   },
 
