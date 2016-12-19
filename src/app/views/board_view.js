@@ -14,7 +14,6 @@ var BoardView = Backbone.View.extend({
     console.log('Spot [' + spotVertical + ',' + spotHorizontal + ']');
   }
 
-  }
-);
+});
 
 export default BoardView;
