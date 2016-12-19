@@ -1,3 +1,7 @@
+.scoring {
+  display: inline;
+}
+
 .square {
   width: 100px;
   height: 100px;

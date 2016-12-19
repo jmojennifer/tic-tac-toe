@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Tic-Tac-Toe</title>
+    <title>Tic-Tac-Toe: Fruits!</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="http://cdn.foundation5.zurb.com/foundation.css" media="screen" title="no title">
     <link rel="stylesheet" href="./styles/index.css" media="screen" title="no title">
@@ -10,11 +10,18 @@
 <body>
     <div id="application">
         <header>
-            <h1>Tic Tac Toe</h1>
+            <h1>Tic Tac Toe: Fruits!</h1>
         </header>
 
         <section>
-            <h3>Instructions:</h3>
+            <h3>Instructions</h3>
+            <p>Click the spot on the board where you'd like to play your mark. (Who plays first will alternate between games, with X starting the first game.) The first player to create a line of 3 horizontal, vertical or diagonal X or O marks is the winner. If none are created, the game will end in a tie.
+        </section>
+
+        <section>
+          <p id="playerXscore" class="scoring">X: </p>
+          <p id="playerOscore" class="scoring">O: </p>
+          <p id="tiescore" class="scoring">tie: </p>
         </section>
 
         <main id="board">
