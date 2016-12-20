@@ -2,11 +2,11 @@ import Backbone from 'backbone';
 
 const Application = Backbone.Model.extend ({
 
-  default: {
-    sessionGameCount: 0,
-    playerXwins: 0,
-    playerOwins: 0,
-    tiescores: 0
+  initialize: function(options) {
+    this.sessionGameCount = 0;
+    this.playerXwins = 0;
+    this.playerOwins = 0;
+    this.tiescores = 0;
   },
 
 });
