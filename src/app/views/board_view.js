@@ -19,33 +19,16 @@ var BoardView = Backbone.View.extend({
 
   markSpot: function(spot) {
     var spotVertical = $(spot.currentTarget).data('vertical');
-    console.log(spotVertical);
     var spotHorizontal = $(spot.currentTarget).data('horizontal');
     this.newGame.currentPlayer.setMark(this.newBoard, spotVertical, spotHorizontal);
-    console.log(spotHorizontal);
 
-    console.log(spot.currentTarget);
-    // allows me to put the text of the append in each spot
-    // if (this.newGame.currentPlayer.mark == "X") {
-    //   spot.currentTarget.append('<img src= imgs/rosemary.jpg>');
-    // } else {
-    //   spot.currentTarget.append('<img src= "/imgs/peach.jpg">');
-    // }
 
-    // allows me to put a single image on all board spots
-    // if (this.newGame.currentPlayer.mark == "X") {
-    //   $('.square').html('<img src= imgs/rosemary.jpg>');
-    // } else {
-    //   $('.square').html('<img src= "/imgs/peach.jpg">');
-    // }
-
-    if (this.newGame.currentPlayer.mark == "X") {
+    if (this.newGame.currentPlayer.mark == "X" && this.newBoard.boardArray[spotVertical][spotHorizontal] == "X") {
       $('.square[data-vertical=' + spotVertical + '][data-horizontal=' + spotHorizontal + ']').html('<img src= imgs/rosemary.jpg>');
-    } else {
+    } else if (this.newGame.currentPlayer.mark == "O" && this.newBoard.boardArray[spotVertical][spotHorizontal] == "O") {
       $('.square[data-vertical=' + spotVertical + '][data-horizontal=' + spotHorizontal + ']').html('<img src= imgs/peach.jpg>');
     }
 
-    console.log(this.newBoard);
     console.log('Spot [' + spotVertical + ',' + spotHorizontal + ']');
     this.newGame.isDone();
     this.newGame.switchTurn();
