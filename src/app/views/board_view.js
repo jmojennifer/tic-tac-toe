@@ -19,19 +19,31 @@ var BoardView = Backbone.View.extend({
   markSpot: function(spot) {
     var spotVertical = $(spot.currentTarget).data('vertical');
     var spotHorizontal = $(spot.currentTarget).data('horizontal');
-    this.newGame.currentPlayer.setMark(this.newGame.gameBoard, spotVertical, spotHorizontal);
-
-    console.log(this.newGame.gameBoard);
-    console.log('Spot [' + spotVertical + ',' + spotHorizontal + ']');
-    this.newGame.isDone();
-
-    if (this.newGame.currentPlayer.mark == "X" && this.newGame.gameBoard.boardArray[spotVertical][spotHorizontal] == "X") {
-      $('.square[data-vertical=' + spotVertical + '][data-horizontal=' + spotHorizontal + ']').html('<img src= imgs/rosemary.jpg>');
-      this.newGame.switchTurn();
-    } else if (this.newGame.currentPlayer.mark == "O" && this.newGame.gameBoard.boardArray[spotVertical][spotHorizontal] == "O") {
-      $('.square[data-vertical=' + spotVertical + '][data-horizontal=' + spotHorizontal + ']').html('<img src= imgs/peach.jpg>');
-      this.newGame.switchTurn();
+    if (this.newGame.gameActive === true) {
+      this.newGame.currentPlayer.setMark(this.newGame.gameBoard, spotVertical, spotHorizontal);
     }
+
+    if (this.newGame.currentPlayer.mark == "X" && this.newGame.gameBoard.boardArray[spotVertical][spotHorizontal] == "X" && this.newGame.gameActive === true) {
+      $('.square[data-vertical=' + spotVertical + '][data-horizontal=' + spotHorizontal + ']').html('<img src= imgs/rosemary.jpg>');
+
+      if (this.newGame.isDone() === false) {
+        this.newGame.switchTurn();
+      } else {
+        this.newGame.isDone();
+      }
+    } else if (this.newGame.currentPlayer.mark == "O" && this.newGame.gameBoard.boardArray[spotVertical][spotHorizontal] == "O" && this.newGame.gameActive === true) {
+      $('.square[data-vertical=' + spotVertical + '][data-horizontal=' + spotHorizontal + ']').html('<img src= imgs/peach.jpg>');
+
+      if (this.newGame.isDone() === false) {
+        this.newGame.switchTurn();
+      } else {
+        this.newGame.isDone();
+      }
+    }
+  },
+
+  boardReset: function(){
+
   }
 });
 
