@@ -1,6 +1,9 @@
 import Backbone from 'backbone';
+import $ from 'jquery';
+
 import Board from 'app/models/board';
 import Player from 'app/models/player';
+import Application from 'app/models/application';
 
 const Game = Backbone.Model.extend ({
   defaults: {
@@ -27,14 +30,16 @@ const Game = Backbone.Model.extend ({
 
     if (this.playerX.active === true) {
       this.currentPlayer = this.playerX;
-    } else {
+    } else if (this.playerX.active === false){
       this.currentPlayer = this.playerO;
     }
   },
 
   isDone: function() {
+    console.log("isDone has been called");
     var checkedMark = this.currentPlayer.mark;
-
+    console.log("This is the mark to check: " + checkedMark);
+    console.log("Spot on board: " , this.gameBoard.boardArray[1][0]);
     if (
       // the two diagonal winning possibilities:
       (this.gameBoard.boardArray[0][0] == checkedMark &&
@@ -73,11 +78,15 @@ const Game = Backbone.Model.extend ({
 
       this.winner = this.currentPlayer;
       this.sessionGameCount += 1;
+      console.log("win condition has been found");
+      $('#end_of_game_summary').append('The winner is '+ this.winner + "!");
       return true;
 
     } else if (this.gameBoard.isFull() === true) {
+      console.log("tie condition has been found");
       this.winner = "Tie game, no winner this round!";
       this.sessionGameCount += 1;
+      $('#end_of_game_summary').append(this.winner);
       return true;
 
     } else {

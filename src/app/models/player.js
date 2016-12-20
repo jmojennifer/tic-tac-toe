@@ -22,9 +22,9 @@ const Player = Backbone.Model.extend ({
   setMark: function(board, firstArrayIndex, secondArrayIndex) {
     if (board.boardArray[firstArrayIndex][secondArrayIndex] == ' ') {
       board.boardArray[firstArrayIndex][secondArrayIndex] = this.mark;
-      
+
     } else {
-      console.log('That space has been assigned');
+      throw('That space has been assigned');
     }
     return board.boardArray[firstArrayIndex][secondArrayIndex]; // returned for testing purposes
   },
