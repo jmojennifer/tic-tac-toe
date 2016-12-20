@@ -28,16 +28,12 @@ var BoardView = Backbone.View.extend({
 
       if (this.newGame.isDone() === false) {
         this.newGame.switchTurn();
-      } else {
-        this.newGame.isDone();
       }
     } else if (this.newGame.currentPlayer.mark == "O" && this.newGame.gameBoard.boardArray[spotVertical][spotHorizontal] == "O" && this.newGame.gameActive === true) {
       $('.square[data-vertical=' + spotVertical + '][data-horizontal=' + spotHorizontal + ']').html('<img src= imgs/peach.jpg>');
 
       if (this.newGame.isDone() === false) {
         this.newGame.switchTurn();
-      } else {
-        this.newGame.isDone();
       }
     }
   },

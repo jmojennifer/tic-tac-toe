@@ -37,10 +37,7 @@ const Game = Backbone.Model.extend ({
   },
 
   isDone: function() {
-    console.log("isDone has been called");
     var checkedMark = this.currentPlayer.mark;
-    console.log("This is the mark to check: " + checkedMark);
-    console.log("Spot on board: " , this.gameBoard.boardArray[1][0]);
     if (
       // the two diagonal winning possibilities:
       (this.gameBoard.boardArray[0][0] == checkedMark &&
@@ -85,7 +82,6 @@ const Game = Backbone.Model.extend ({
       return true;
 
     } else if (this.gameBoard.isFull() === true) {
-      console.log("tie condition has been found");
       this.winner = "Tie game, no winner this round!";
       this.sessionGameCount += 1;
       $('#end_of_game_summary').append(this.winner);
