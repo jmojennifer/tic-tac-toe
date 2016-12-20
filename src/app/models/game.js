@@ -76,7 +76,7 @@ const Game = Backbone.Model.extend ({
       this.gameBoard.boardArray[2][1] == checkedMark &&
       this.gameBoard.boardArray[2][2] == checkedMark)) {
 
-      this.winner = this.currentPlayer;
+      this.winner = this.currentPlayer.mark;
       this.sessionGameCount += 1;
       console.log("win condition has been found");
       $('#end_of_game_summary').append('The winner is '+ this.winner + "!");
