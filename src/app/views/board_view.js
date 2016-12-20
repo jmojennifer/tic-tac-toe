@@ -25,13 +25,14 @@ var BoardView = Backbone.View.extend({
 
     if (this.newGame.currentPlayer.mark == "X" && this.newBoard.boardArray[spotVertical][spotHorizontal] == "X") {
       $('.square[data-vertical=' + spotVertical + '][data-horizontal=' + spotHorizontal + ']').html('<img src= imgs/rosemary.jpg>');
+      this.newGame.switchTurn();
     } else if (this.newGame.currentPlayer.mark == "O" && this.newBoard.boardArray[spotVertical][spotHorizontal] == "O") {
       $('.square[data-vertical=' + spotVertical + '][data-horizontal=' + spotHorizontal + ']').html('<img src= imgs/peach.jpg>');
+      this.newGame.switchTurn();
     }
 
     console.log('Spot [' + spotVertical + ',' + spotHorizontal + ']');
     this.newGame.isDone();
-    this.newGame.switchTurn();
   }
 
 });
