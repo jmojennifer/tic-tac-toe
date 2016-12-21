@@ -9,11 +9,11 @@ var ApplicationView = Backbone.View.extend({
 
   initialize: function(){
 
-    var newSession = new Application();
-    var newBoardView = new BoardView ({
-      el: $('#board')
+    this.newSession = new Application();
+    this.newBoardView = new BoardView ({
+      el: $('#board'),
+      session: this.newSession
     });
-
   },
 
   render: function() {
@@ -26,6 +26,15 @@ var ApplicationView = Backbone.View.extend({
 
   restartGame: function(event) {
     console.log("Restart Game");
+    this.newBoardView = new BoardView ({
+      el: $('#board'),
+      session: this.newSession
+    });
+    $('td').each(function() {
+      $(this).empty();
+    });
+
+    $('#end_of_game_message').empty();
   }
 
 });

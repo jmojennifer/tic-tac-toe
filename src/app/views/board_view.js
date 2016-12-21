@@ -9,7 +9,7 @@ import Game from 'app/models/game';
 var BoardView = Backbone.View.extend({
 
   initialize: function(options) {
-    this.newGame = new Game();
+    this.newGame = new Game(options.session);
   },
 
   events: {
