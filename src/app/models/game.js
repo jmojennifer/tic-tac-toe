@@ -29,14 +29,7 @@ const Game = Backbone.Model.extend ({
     }
 
   },
-
-  // if (this.playerX.active === true) {
-  // this.currentPlayer: this.playerX; // this line will be changed later when we begin "switching" which player starts each game first within multiple sessions
-
-  // } else {
-  //   this.currentPlayer = this.playerO
-  // }
-
+  
   switchTurn: function() {
 
     this.playerX.active = !(this.playerX.active);
