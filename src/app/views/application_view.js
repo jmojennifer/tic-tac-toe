@@ -16,12 +16,12 @@ var ApplicationView = Backbone.View.extend({
     });
   },
 
-  render: function() {
-    newBoard.render();
-  },
+  // render: function() {
+  //   newBoard.render();
+  // },
 
   events: {
-    'click #restart-button': 'restartGame'
+    'click #restart-button': 'restartGame',
   },
 
   restartGame: function(event) {
@@ -33,9 +33,10 @@ var ApplicationView = Backbone.View.extend({
     $('td').each(function() {
       $(this).empty();
     });
+    console.log();
 
-    $('#end_of_game_message').empty();
-  }
+    $('#end-of-game-message').empty();
+  },
 
 });
 

@@ -29,7 +29,7 @@ const Game = Backbone.Model.extend ({
     }
 
   },
-  
+
   switchTurn: function() {
 
     this.playerX.active = !(this.playerX.active);
@@ -83,14 +83,14 @@ const Game = Backbone.Model.extend ({
                         this.winner = this.currentPlayer.mark;
                         this.currentSessionData.sessionGameCount += 1;
                         console.log("win condition has been found");
-                        $('#end_of_game_message').append('The winner is '+ this.winner + "!");
+                        $('#end-of-game-message').append('The winner is '+ this.winner + "!");
                         this.gameActive = false;
                         return true;
 
                       } else if (this.gameBoard.isFull() === true) {
                         this.winner = "Tie game, no winner this round!";
                         this.currentSessionData.sessionGameCount += 1;
-                        $('#end_of_game_message').append(this.winner);
+                        $('#end-of-game-message').append(this.winner);
                         this.gameActive = false;
                         return true;
 
