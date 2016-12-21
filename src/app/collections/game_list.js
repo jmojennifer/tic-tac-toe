@@ -1,5 +1,6 @@
 // app/collections/task_list.js
 import Backbone from 'backbone';
+import $ from 'jquery';
 
 import Game from 'app/models/game';
 

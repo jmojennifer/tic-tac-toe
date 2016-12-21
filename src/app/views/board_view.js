@@ -39,9 +39,6 @@ var BoardView = Backbone.View.extend({
     }
   },
 
-  boardReset: function(){
-
-  }
 });
 
 export default BoardView;

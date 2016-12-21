@@ -30,6 +30,10 @@ const Game = Backbone.Model.extend ({
 
   },
 
+  toJSON: function(){
+    
+  },
+
   switchTurn: function() {
 
     this.playerX.active = !(this.playerX.active);
@@ -86,6 +90,7 @@ const Game = Backbone.Model.extend ({
                         $('#end-of-game-message').append('The winner is '+ this.winner + "!");
                         this.gameActive = false;
                         $("#new-game-button").show();
+
                         return true;
 
                       } else if (this.gameBoard.isFull() === true) {
