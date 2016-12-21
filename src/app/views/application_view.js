@@ -21,11 +21,10 @@ var ApplicationView = Backbone.View.extend({
   // },
 
   events: {
-    'click #restart-button': 'restartGame',
+    'click #new-game-button': 'restartGame',
   },
 
   restartGame: function(event) {
-    console.log("Restart Game");
     this.newBoardView = new BoardView ({
       el: $('#board'),
       session: this.newSession

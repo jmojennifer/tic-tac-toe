@@ -10,6 +10,7 @@ var BoardView = Backbone.View.extend({
 
   initialize: function(options) {
     this.newGame = new Game(options.session);
+    $("#new-game-button").hide();
   },
 
   events: {

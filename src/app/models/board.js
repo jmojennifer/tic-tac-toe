@@ -1,7 +1,7 @@
 import Backbone from 'backbone';
 
 const Board = Backbone.Model.extend ({
-  initialize: function(){
+  initialize: function(options){
     this.boardArray = [[' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' ']];
   },
 
