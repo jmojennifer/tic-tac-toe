@@ -4,13 +4,14 @@ import $ from 'jquery';
 import Board from 'app/models/board';
 import Player from 'app/models/player';
 import ApplicationView from 'app/views/application_view';
+// import GameList from 'app/collections/game_list';
 
 const Game = Backbone.Model.extend ({
   defaults: {
     winner: undefined
   },
 
-  initialize: function(options) {
+  initialize: function(options, collection) {
     this.gameActive = true;
     this.playerX = new Player({
       mark: 'X',
@@ -22,16 +23,14 @@ const Game = Backbone.Model.extend ({
     });
     this.gameBoard = new Board();
     this.currentSessionData = options;
+    this.currentCollection = collection;
+
     if (this.currentSessionData.sessionGameCount % 2 === 0) {
       this.currentPlayer = this.playerX;
     } else {
       this.currentPlayer = this.playerO;
     }
 
-  },
-
-  toJSON: function(){
-    
   },
 
   switchTurn: function() {
@@ -89,6 +88,15 @@ const Game = Backbone.Model.extend ({
                         console.log("win condition has been found");
                         $('#end-of-game-message').append('The winner is '+ this.winner + "!");
                         this.gameActive = false;
+
+                        var rawGame = {
+                          // board: this.gameBoard.boardArray,
+                          'board': [].concat.apply([], this.gameBoard.boardArray),
+                          'players': ["Player X", "Player O"],
+                          'outcome': this.winner
+                        };
+
+                        this.currentCollection.create(rawGame);
                         $("#new-game-button").show();
 
                         return true;

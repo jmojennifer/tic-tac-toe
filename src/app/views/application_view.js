@@ -13,7 +13,8 @@ var ApplicationView = Backbone.View.extend({
     this.newSession = new Application();
     this.newBoardView = new BoardView ({
       el: $('#board'),
-      session: this.newSession
+      session: this.newSession,
+      collection: this.model
     });
     this.model.fetch().done(function(APIdata) {
       APIdata.forEach(function(eachGame) {
