@@ -37,14 +37,13 @@ var ApplicationView = Backbone.View.extend({
   },
 
   gameHistory: function() {
-    console.log("GOT INTO SHOWGAMEHISTORY");
     this.model.fetch().done(function(APIdata) {
       if ($('#game-list').is(':empty')) {
         APIdata.forEach(function(eachGame) {
-
           var date = new Date(eachGame.played_at);
           $('#game-list').append("<p>-----</p>");
           $('#game-list').append("<p>Game ID: " + eachGame.id + "</p>");
+          $('#game-list').append("<a id='game-id-" + eachGame.id + "' href = https://arcane-ravine-85520.herokuapp.com//api/v1/games/" + eachGame.id + ">Delete</a></p>");
           $('#game-list').append("<p>Players: </p>");
           $('#game-list').append("<p>" + eachGame.players[0] + "</p>");
           $('#game-list').append("<p>" + eachGame.players[1] + "</p>");
