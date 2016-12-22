@@ -46,6 +46,7 @@ const Game = Backbone.Model.extend ({
   },
 
   isDone: function() {
+    var rawGame;
     var checkedMark = this.currentPlayer.mark;
     if (
       // the two diagonal winning possibilities:
@@ -85,11 +86,10 @@ const Game = Backbone.Model.extend ({
 
                         this.winner = this.currentPlayer.mark;
                         this.currentSessionData.sessionGameCount += 1;
-                        console.log("win condition has been found");
                         $('#end-of-game-message').append('The winner is '+ this.winner + "!");
                         this.gameActive = false;
 
-                        var rawGame = {
+                        rawGame = {
                           // board: this.gameBoard.boardArray,
                           'board': [].concat.apply([], this.gameBoard.boardArray),
                           'players': ["Player X", "Player O"],
@@ -102,10 +102,20 @@ const Game = Backbone.Model.extend ({
                         return true;
 
                       } else if (this.gameBoard.isFull() === true) {
-                        this.winner = "Tie game, no winner this round!";
+                        this.winner = "draw";
                         this.currentSessionData.sessionGameCount += 1;
                         $('#end-of-game-message').append(this.winner);
                         this.gameActive = false;
+
+                        rawGame = {
+                          // board: this.gameBoard.boardArray,
+                          'board': [].concat.apply([], this.gameBoard.boardArray),
+                          'players': ["Player X", "Player O"],
+                          'outcome': this.winner
+                        };
+
+                        this.currentCollection.create(rawGame);
+                        $("#new-game-button").show();
                         return true;
 
                       } else {

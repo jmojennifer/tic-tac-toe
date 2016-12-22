@@ -38,7 +38,8 @@ var ApplicationView = Backbone.View.extend({
   restartGame: function(event) {
     this.newBoardView = new BoardView ({
       el: $('#board'),
-      session: this.newSession
+      session: this.newSession,
+      collection: this.model
     });
     $('td').each(function() {
       $(this).empty();
