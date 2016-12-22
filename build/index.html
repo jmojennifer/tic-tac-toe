@@ -1,60 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Tic-Tac-Toe: Produce edition!</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="http://cdn.foundation5.zurb.com/foundation.css" media="screen" title="no title">
-    <link rel="stylesheet" href="./styles/index.css" media="screen" title="no title">
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+  <title>Tic-Tac-Toe: Produce edition!</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="http://cdn.foundation5.zurb.com/foundation.css" media="screen" title="no title">
+  <link rel="stylesheet" href="./styles/index.css" media="screen" title="no title">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
 </head>
 <body>
-    <div id="application">
-        <header>
-            <h1>Tic Tac Toe: Produce edition!</h1>
-        </header>
+  <div id="application">
+    <header>
+      <h1>Tic Tac Toe: Produce edition!</h1>
+    </header>
 
-        <section>
-            <h3>Instructions</h3>
-            <p>Click the spot on the board where you'd like to play your mark. (Who plays first will alternate between games, with X starting the first game.) The first player to create a line of 3 horizontal, vertical or diagonal X or O marks is the winner. If none are created, the game will end in a tie.
-        </section>
-
-        <!-- <section>
-          <p id="playerXscore" class="scoring">X: -</p>
-          <p id="playerOscore" class="scoring">O: -</p>
-          <p id="tiescore" class="scoring">tie: -</p>
-        </section> -->
-
-        <main id="board">
-          <table>
-            <tr>
-              <td data-vertical = "0" data-horizontal = "0" class="square"> </td>
-              <td data-vertical = "0" data-horizontal = "1" class="square v"></td>
-              <td data-vertical = "0" data-horizontal = "2" class="square"></td>
-            </tr>
-            <tr>
-              <td data-vertical = "1" data-horizontal = "0" class="square h"></td>
-              <td data-vertical = "1" data-horizontal = "1" class="square v h"></td>
-              <td data-vertical = "1" data-horizontal = "2" class="square h"></td>
-            </tr>
-            <tr>
-              <td data-vertical = "2" data-horizontal = "0" class="square"></td>
-              <td data-vertical = "2" data-horizontal = "1" class="square v"></td>
-              <td data-vertical = "2" data-horizontal = "2" class="square"></td>
-            </tr>
-          </table>
-        </main>
-
-        <section id="end-of-game-message"></section>
-        <button type="button" name="button" class="button" id="new-game-button">New game</button>
-    </div>
-
-    <div>
-      <section id="game-list">
-        <p>Games History</p>
+    <section>
+      <h3>Instructions</h3>
+      <p>Click the spot on the board where you'd like to play your mark. (Who plays first will alternate between games, with X starting the first game.) The first player to create a line of 3 horizontal, vertical or diagonal X or O marks is the winner. If none are created, the game will end in a tie.
       </section>
+
+      <main id="board">
+        <table>
+          <tr>
+            <td data-vertical = "0" data-horizontal = "0" class="square"> </td>
+            <td data-vertical = "0" data-horizontal = "1" class="square v"></td>
+            <td data-vertical = "0" data-horizontal = "2" class="square"></td>
+          </tr>
+          <tr>
+            <td data-vertical = "1" data-horizontal = "0" class="square h"></td>
+            <td data-vertical = "1" data-horizontal = "1" class="square v h"></td>
+            <td data-vertical = "1" data-horizontal = "2" class="square h"></td>
+          </tr>
+          <tr>
+            <td data-vertical = "2" data-horizontal = "0" class="square"></td>
+            <td data-vertical = "2" data-horizontal = "1" class="square v"></td>
+            <td data-vertical = "2" data-horizontal = "2" class="square"></td>
+          </tr>
+        </table>
+      </main>
+
+      <section id="end-of-game-message"></section>
+
+      <section>
+        <p><button type="button" name="button" class="button" id="new-game-button">New Game</button></p>
+
+        <p><button type="button" name="button" class="button" id="game-history-button">Game History</button></p>
+      </section>
+
+      <section id="game-list"></section>
+
     </div>
-
-
+    
     <script src="/app.bundle.js" charset="utf-8"></script>
-</body>
-</html>
+  </body>
+  </html>

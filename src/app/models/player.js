@@ -6,7 +6,6 @@ import Application from 'app/models/application';
 
 const Player = Backbone.Model.extend ({
   initialize: function(options){
-    console.log(options);
     this.mark = options.mark;
     this.currentSessionData = options.session;
     if (this.currentSessionData.sessionGameCount % 2 === 0) {
@@ -22,7 +21,6 @@ const Player = Backbone.Model.extend ({
       this.active = false;
     }
   }
-  console.log(this.mark + " is active: " + this.active);
 },
 
 setMark: function(board, firstArrayIndex, secondArrayIndex) {

@@ -86,7 +86,7 @@ const Game = Backbone.Model.extend ({
 
                         this.winner = this.currentPlayer.mark;
                         this.currentSessionData.sessionGameCount += 1;
-                        $('#end-of-game-message').append('The winner is '+ this.winner + "!");
+                        $('#end-of-game-message').append('<p>The winner is '+ this.winner + '!</p>');
                         this.gameActive = false;
 
                         rawGame = {

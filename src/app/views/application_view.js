@@ -9,38 +9,26 @@ import GameList from 'app/collections/game_list';
 var ApplicationView = Backbone.View.extend({
 
   initialize: function(options){
-
     this.newSession = new Application();
     this.newBoardView = new BoardView ({
       el: $('#board'),
       session: this.newSession,
       collection: this.model
     });
-    this.model.fetch().done(function(APIdata) {
-      APIdata.forEach(function(eachGame) {
-        console.log("APIdata:",eachGame);
-        var date = new Date(eachGame.played_at);
-        $('#game-list').append("<p>-----</p>");
-        $('#game-list').append("<p>Game ID: " + eachGame.id + "</p>");
-        $('#game-list').append("<p>Players: </p>");
-        $('#game-list').append("<p>" + eachGame.players[0] + "</p>");
-        $('#game-list').append("<p>" + eachGame.players[1] + "</p>");
-        $('#game-list').append("<p>Outcome (Winning Player's Mark or Tie): " + eachGame.outcome + "</p>");
-        $('#game-list').append("<p>Date/time game was played: " + date + "</p>");
-      });
-    });
   },
 
   events: {
-    'click #new-game-button': 'restartGame',
+    'click #new-game-button': 'newGame',
+    'click #game-history-button': 'gameHistory'
   },
 
-  restartGame: function(event) {
+  newGame: function() {
     this.newBoardView = new BoardView ({
       el: $('#board'),
       session: this.newSession,
       collection: this.model
     });
+
     $('td').each(function() {
       $(this).empty();
     });
@@ -48,6 +36,26 @@ var ApplicationView = Backbone.View.extend({
     $('#end-of-game-message').empty();
   },
 
+  gameHistory: function() {
+    console.log("GOT INTO SHOWGAMEHISTORY");
+    this.model.fetch().done(function(APIdata) {
+      if ($('#game-list').is(':empty')) {
+        APIdata.forEach(function(eachGame) {
+
+          var date = new Date(eachGame.played_at);
+          $('#game-list').append("<p>-----</p>");
+          $('#game-list').append("<p>Game ID: " + eachGame.id + "</p>");
+          $('#game-list').append("<p>Players: </p>");
+          $('#game-list').append("<p>" + eachGame.players[0] + "</p>");
+          $('#game-list').append("<p>" + eachGame.players[1] + "</p>");
+          $('#game-list').append("<p>Outcome (Winning Player's Mark or Tie): "  + eachGame.outcome + "</p>");
+          $('#game-list').append("<p>Date/time game was played: " + date +  "</p>");
+        });
+      } else {
+        $('#game-list').empty();
+      }
+    });
+  },
 });
 
 export default ApplicationView;
