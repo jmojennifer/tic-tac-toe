@@ -48,7 +48,7 @@ var ApplicationView = Backbone.View.extend({
           $('#game-list').append("<p>Players: </p>");
           $('#game-list').append("<p>" + eachGame.players[0] + "</p>");
           $('#game-list').append("<p>" + eachGame.players[1] + "</p>");
-          $('#game-list').append("<p>Outcome (Winning Player's Mark or Tie): "  + eachGame.outcome + "</p>");
+          $('#game-list').append("<p>Outcome (Winning Player's Mark or Draw): "  + eachGame.outcome + "</p>");
           $('#game-list').append("<p>Date/time game was played: " + date +  "</p>");
         });
       } else {
